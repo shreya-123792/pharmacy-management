@@ -3,11 +3,14 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 const authRoutes = require("./routes/authRoutes");
+const batchRoutes = require("./routes/batchRoutes");
+console.log("BATCH ROUTES:", batchRoutes);
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/batches", batchRoutes);
 app.get("/", (req, res) => {
   res.json({ message: "Pharmacy API is running" });
 });
